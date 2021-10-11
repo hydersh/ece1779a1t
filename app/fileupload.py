@@ -1,6 +1,7 @@
 from flask import render_template, redirect, url_for, request, g, session
 from app import webapp
 from app.config import db_config
+from werkzeug.security import generate_password_hash, check_password_hash
 import mysql.connector
 import tempfile
 import os
@@ -43,12 +44,16 @@ def login():
     query = 'SELECT * FROM user WHERE username = %s'
     cursor.execute(query, (userid,))
     user, passdb = cursor.fetchone()
-
     if user is None:
         print("Missing User")
         return render_template("login.html")
-    else:
+    elif user == "Test1":
         if password == passdb:
+            return redirect("/register")
+        else:
+            return render_template("login.html")
+    else:
+        if check_password_hash(passdb, password):
             return redirect("/imghome")
         else:
             return render_template("login.html")

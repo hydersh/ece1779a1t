@@ -1,9 +1,37 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image Home</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/
+        jquery/3.5.1/jquery.min.js">
+    function myFunction(var data) {
+        var Data  = data
+        if Data !== null {
+            console.log(Data);
+            jAlert(Data);
+        }
+                $(document).ready(function() {
 
+   }
+    </script>
+
+        <script>
+            $(document).ready(function() {
+                jAlert("test")
+            });
+        </script>
+    </head>
+
+
+<body>
     <ul>
         <li><a href="{{url_for('image_form')}}">File Upload</a></li>
         <li><a href="{{url_for('image_view')}}">Image Transform</a></li>
+
+
     </ul>
 
-{% endblock %}
+
+
+</body>
+</html>

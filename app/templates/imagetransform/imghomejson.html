@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script>
+    function myFunction(var data) {
+        var Data  = data
+        if Data !== null {
+            console.log(Data);
+            app.alert(Data);
+        }
+   }
+</script>
+
+    <ul>
+        <li><a href="{{url_for('image_form')}}">File Upload</a></li>
+        <li><a href="{{url_for('image_view')}}">Image Transform</a></li>
+
+
+    </ul>
+
+
+{% endblock %}
+
+
+$(document).ready(function() {
+    myFunction( {{ data }} )
+});
